@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Tugas JavaScript - Parameter Bebas</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+      }
+      h2 {
+        color: #2c3e50;
+      }
+      .card {
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        padding: 15px;
+        margin-bottom: 20px;
+        width: 350px;
+      }
+      label {
+        display: block;
+        margin: 8px 0 4px;
+      }
+      input {
+        width: 100%;
+        padding: 6px;
+        margin-bottom: 10px;
+      }
+      button {
+        padding: 8px 12px;
+        background-color: #3498db;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      button:hover {
+        background-color: #2980b9;
+      }
+      .hasil {
+        margin-top: 10px;
+        font-weight: bold;
+        color: green;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Perhitungan Bangun dengan JavaScript</h2>
+
+    <!-- Persegi -->
+    <div class="card">
+      <h3>Luas Persegi</h3>
+      <label for="sisi">Masukkan sisi:</label>
+      <input type="number" id="sisi" placeholder="contoh: 5" />
+      <button onclick="tampilkanLuasPersegi()">Hitung Luas</button>
+      <p class="hasil" id="hasilPersegi"></p>
+    </div>
+
+    <!-- Persegi Panjang -->
+    <div class="card">
+      <h3>Keliling Persegi Panjang</h3>
+      <label for="panjang">Masukkan panjang:</label>
+      <input type="number" id="panjang" placeholder="contoh: 10" />
+      <label for="lebar">Masukkan lebar:</label>
+      <input type="number" id="lebar" placeholder="contoh: 4" />
+      <button onclick="tampilkanKelilingPersegiPanjang()">Hitung Keliling</button>
+      <p class="hasil" id="hasilPersegiPanjang"></p>
+    </div>
+
+    <!-- Prisma Segitiga -->
+    <div class="card">
+      <h3>Volume Prisma Segitiga</h3>
+      <label for="luasAlas">Masukkan luas alas segitiga:</label>
+      <input type="number" id="luasAlas" placeholder="contoh: 12" />
+      <label for="tinggi">Masukkan tinggi prisma:</label>
+      <input type="number" id="tinggi" placeholder="contoh: 7" />
+      <button onclick="tampilkanVolumePrisma()">Hitung Volume</button>
+      <p class="hasil" id="hasilPrisma"></p>
+    </div>
+
+    <script>
+      // Fungsi menghitung luas persegi
+      // Parameter: sisi (bebas nilainya)
+      // Rumus: luas = sisi * sisi
+      function hitungLuasPersegi(sisi) {
+        return sisi * sisi;
+      }
+
+      // Fungsi menghitung keliling persegi panjang
+      // Parameter: panjang dan lebar (bebas nilainya)
+      // Rumus: keliling = 2 * (panjang + lebar)
+      function hitungKelilingPersegiPanjang(panjang, lebar) {
+        return 2 * (panjang + lebar);
+      }
+
+      // Fungsi menghitung volume prisma segitiga
+      // Parameter: luas alas dan tinggi prisma (bebas nilainya)
+      // Rumus: volume = luas alas * tinggi
+      function hitungVolumePrismaSegitiga(luasAlas, tinggi) {
+        return luasAlas * tinggi;
+      }
+
+      // Fungsi untuk menampilkan hasil luas persegi ke halaman
+      function tampilkanLuasPersegi() {
+        let sisi = document.getElementById("sisi").value;
+        let hasil = hitungLuasPersegi(Number(sisi));
+        document.getElementById("hasilPersegi").innerText = "Luas Persegi dengan sisi " + sisi + " adalah " + hasil;
+      }
+
+      // Fungsi untuk menampilkan hasil keliling persegi panjang ke halaman
+      function tampilkanKelilingPersegiPanjang() {
+        let panjang = document.getElementById("panjang").value;
+        let lebar = document.getElementById("lebar").value;
+        let hasil = hitungKelilingPersegiPanjang(Number(panjang), Number(lebar));
+        document.getElementById("hasilPersegiPanjang").innerText = "Keliling Persegi Panjang dengan panjang " + panjang + " dan lebar " + lebar + " adalah " + hasil;
+      }
+
+      // Fungsi untuk menampilkan hasil volume prisma segitiga ke halaman
+      function tampilkanVolumePrisma() {
+        let luasAlas = document.getElementById("luasAlas").value;
+        let tinggi = document.getElementById("tinggi").value;
+        let hasil = hitungVolumePrismaSegitiga(Number(luasAlas), Number(tinggi));
+        document.getElementById("hasilPrisma").innerText = "Volume Prisma Segitiga dengan luas alas " + luasAlas + " dan tinggi " + tinggi + " adalah " + hasil;
+      }
+    </script>
+  </body>
+</html>
